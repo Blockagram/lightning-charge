@@ -1,2 +1,8 @@
 flask
 requests
+qrcode
+flask-sqlalchemy
+flask-migrate
+flask-script
+python-dotenv
+pylightning
