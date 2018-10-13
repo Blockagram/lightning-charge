@@ -12,7 +12,7 @@ from flask_sse import sse
 def create_app(config=None, testing=False, cli=False):
     """Application factory, used to create application
     """
-    app = Flask('charge')
+    app = Flask("charge")
 
     configure_app(app, testing)
     configure_extensions(app, cli)
@@ -25,11 +25,11 @@ def configure_app(app, testing=False):
     """set configuration for application
     """
     # default configuration
-    app.config.from_object('charge.config')
+    app.config.from_object("charge.config")
 
     if testing is True:
         # override with testing config
-        app.config.from_object('charge.configtest')
+        app.config.from_object("charge.configtest")
     else:
         # override with env variable, fail silently if not set
         app.config.from_envvar("CHARGE_CONFIG", silent=True)
@@ -49,7 +49,7 @@ def register_blueprints(app):
     """register all blueprints for application
     """
 
-    app.register_blueprint(sse, url_prefix='/payment-stream')
+    app.register_blueprint(sse, url_prefix="/payment-stream")
     app.register_blueprint(checkout.views.blueprint)
     app.register_blueprint(invoicing.views.blueprint)
     app.register_blueprint(webhook.views.blueprint)
@@ -63,4 +63,7 @@ def check_access():
 
 
 def on_pay(invoice):
-    sse.publish(f"id:{invoice.pay_index}\ndata:{invoice_schema.jsonify(invoice)}\n\n", type='payment')
+    sse.publish(
+        f"id:{invoice.pay_index}\ndata:{invoice_schema.jsonify(invoice)}\n\n",
+        type="payment",
+    )

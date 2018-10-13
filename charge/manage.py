@@ -1,4 +1,3 @@
-
 import click
 from flask.cli import FlaskGroup
 
@@ -20,7 +19,7 @@ def init():
     and create a new user named admin with password admin
     """
     from charge.extensions import db
-    from charge.models import Invoice, InvoiceWebhook
+
     click.echo("create database")
     db.create_all()
     click.echo("done")

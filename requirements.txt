@@ -6,3 +6,6 @@ flask-migrate
 flask-script
 python-dotenv
 pylightning
+flask-marshmallow
+flask-sse
+marshmallow-sqlalchemy
