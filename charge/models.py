@@ -4,7 +4,6 @@ from charge.database import Model, Column, SurrogatePK
 
 
 class Invoice(Model, SurrogatePK):
-    # id = Column(db.Integer, primary_key=True)
     msatoshi = Column(db.String(50), nullable=True)
     description = Column(db.String(256), nullable=True)
     quoted_currency = Column(db.String(3), nullable=True)
@@ -49,7 +48,6 @@ class Invoice(Model, SurrogatePK):
 
 
 class InvoiceWebhook(Model, SurrogatePK):
-    # id = Column(db.Integer, primary_key=True)
     invoice_id = Column(db.ForeignKey("invoice.id"), nullable=False)
     url = Column(db.String(256), nullable=False)
     created_at = Column(db.Integer, nullable=False)

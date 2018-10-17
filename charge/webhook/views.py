@@ -1,4 +1,4 @@
-from flask import Blueprint, request, abort
+from quart import Blueprint, request, abort
 
 from charge.models import Invoice, InvoiceWebhook
 from charge.invoicing.resources import InvoiceSchema

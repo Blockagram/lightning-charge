@@ -1,4 +1,4 @@
-from flask import Blueprint, abort, render_template, make_response
+from quart import Blueprint, abort, render_template, make_response
 import qrcode
 
 from charge.models import Invoice

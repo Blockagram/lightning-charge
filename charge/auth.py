@@ -1,5 +1,5 @@
 from functools import wraps
-from flask import request, Response
+from quart import request, Response
 
 
 def check_auth(username, password):

@@ -1,5 +1,5 @@
 import click
-from flask.cli import FlaskGroup
+from quart.cli import QuartGroup
 
 from charge.app import create_app
 
@@ -8,7 +8,7 @@ def create_charge(info):
     return create_app(cli=True)
 
 
-@click.group(cls=FlaskGroup, create_app=create_charge)
+@click.group(cls=QuartGroup, create_app=create_charge)
 def cli():
     """Main entry point"""
 
